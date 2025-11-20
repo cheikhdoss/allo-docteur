@@ -4,10 +4,10 @@ body {
 }
 
 /* Hide Scrollbar but keep functionality */
-.scrollbar-hide::-webkit-scrollbar {
+.no-scrollbar::-webkit-scrollbar {
     display: none;
 }
-.scrollbar-hide {
+.no-scrollbar {
     -ms-overflow-style: none;
     scrollbar-width: none;
 }
@@ -19,7 +19,7 @@ body {
 }
 .animate-fade-in-up {
     animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-    opacity: 0; /* Start hidden */
+    opacity: 0;
 }
 
 @keyframes slideInRight {
@@ -40,36 +40,22 @@ body {
     opacity: 0;
 }
 
-/* Delays */
+/* Animation Delays */
+.delay-75 { animation-delay: 75ms; }
 .delay-100 { animation-delay: 100ms; }
+.delay-150 { animation-delay: 150ms; }
 .delay-200 { animation-delay: 200ms; }
 .delay-300 { animation-delay: 300ms; }
 .delay-500 { animation-delay: 500ms; }
 
-/* Timeline Styles for Doctor Dashboard */
+/* Doctor Timeline Styles */
 .timeline-connector::before {
     content: '';
     position: absolute;
-    left: 4rem; /* Align with timeline dots */
+    left: 4rem;
     top: 1rem;
     bottom: 1rem;
     width: 2px;
     background-color: #f1f5f9;
     z-index: 0;
-}
-
-/* Custom Loader */
-.loader {
-    border: 3px solid #f3f3f3;
-    border-radius: 50%;
-    border-top: 3px solid #3b82f6;
-    width: 20px;
-    height: 20px;
-    -webkit-animation: spin 1s linear infinite; /* Safari */
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
 }

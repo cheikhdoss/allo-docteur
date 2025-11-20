@@ -1,31 +1,35 @@
-
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Allo Docteur - Plateforme Médicale</title>
     
-    <!-- Tailwind CSS -->
+    <!-- Tailwind CSS (CDN for simplicity in this setup) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
     
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Custom Styles -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Import Map pour Gemini AI -->
-    <script type="importmap">
+    <!-- Global Styles -->
+    <link rel="stylesheet" href="/style.css">
+    
+    <!-- API Key Config for Client-side (Simulated) -->
+    <script>
+      window.process = {
+        env: {
+          API_KEY: '' // This will be handled by the Gemini Service
+        }
+      };
+    </script>
+  <script type="importmap">
 {
   "imports": {
-    "@google/genai": "https://esm.run/@google/genai",
     "react": "https://aistudiocdn.com/react@^19.2.0",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
     "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
     "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
     "vite": "https://aistudiocdn.com/vite@^7.2.2",
@@ -33,29 +37,9 @@
   }
 }
 </script>
-
-    <!-- Polyfill pour process.env (Pour la compatibilité du code IA) -->
-    <script>
-      window.process = {
-        env: {
-          // Remplacer ceci par votre clé API si vous testez en local
-          API_KEY: '' 
-        }
-      };
-    </script>
 </head>
-<body class="bg-slate-50 text-slate-900 font-sans antialiased">
-    
-    <!-- Navbar Container -->
-    <div id="navbar-container" class="sticky top-0 z-50"></div>
-
-    <!-- Main App Container -->
-    <div id="app" class="min-h-screen pb-20"></div>
-
-    <!-- Chat Widget Container -->
-    <div id="chat-widget-container"></div>
-
-    <!-- Main Logic -->
-    <script type="module" src="script.js"></script>
-</body>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
 </html>
