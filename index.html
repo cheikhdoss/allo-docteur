@@ -1,63 +1,31 @@
+
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Allo Docteur</title>
-    <!-- Tailwind CDN (Pour production rapide sans config postcss) -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allo Docteur - Plateforme Médicale</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <style>
-      body { font-family: 'Inter', sans-serif; }
-      /* Custom scrollbar for chat */
-      .scrollbar-hide::-webkit-scrollbar {
-          display: none;
-      }
-      .scrollbar-hide {
-          -ms-overflow-style: none;
-          scrollbar-width: none;
-      }
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
 
-      /* Global Animations */
-      @keyframes fadeInUp {
-        from { opacity: 0; transform: translateY(20px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .animate-fade-in-up {
-        animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      }
-      
-      @keyframes slideInRight {
-        from { opacity: 0; transform: translateX(20px); }
-        to { opacity: 1; transform: translateX(0); }
-      }
-      .animate-slide-in-right {
-        animation: slideInRight 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      }
-
-      @keyframes scaleIn {
-        from { opacity: 0; transform: scale(0.95); }
-        to { opacity: 1; transform: scale(1); }
-      }
-      .animate-scale-in {
-        animation: scaleIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      }
-
-      /* Delays */
-      .delay-75 { animation-delay: 75ms; }
-      .delay-100 { animation-delay: 100ms; }
-      .delay-150 { animation-delay: 150ms; }
-      .delay-200 { animation-delay: 200ms; }
-      .delay-300 { animation-delay: 300ms; }
-      .delay-500 { animation-delay: 500ms; }
-    </style>
-  <script type="importmap">
+    <!-- Import Map pour Gemini AI -->
+    <script type="importmap">
 {
   "imports": {
+    "@google/genai": "https://esm.run/@google/genai",
     "react": "https://aistudiocdn.com/react@^19.2.0",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
     "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
     "react-router-dom": "https://aistudiocdn.com/react-router-dom@^7.9.6",
     "vite": "https://aistudiocdn.com/vite@^7.2.2",
@@ -65,9 +33,29 @@
   }
 }
 </script>
+
+    <!-- Polyfill pour process.env (Pour la compatibilité du code IA) -->
+    <script>
+      window.process = {
+        env: {
+          // Remplacer ceci par votre clé API si vous testez en local
+          API_KEY: '' 
+        }
+      };
+    </script>
 </head>
-  <body class="bg-slate-50 text-slate-900">
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+    
+    <!-- Navbar Container -->
+    <div id="navbar-container" class="sticky top-0 z-50"></div>
+
+    <!-- Main App Container -->
+    <div id="app" class="min-h-screen pb-20"></div>
+
+    <!-- Chat Widget Container -->
+    <div id="chat-widget-container"></div>
+
+    <!-- Main Logic -->
+    <script type="module" src="script.js"></script>
+</body>
 </html>

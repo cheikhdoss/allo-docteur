@@ -1,20 +1,21 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Allo Docteur (Version HTML/JS)
 
-# Run and deploy your AI Studio app
+Ce projet a été converti en une application web statique pure pour faciliter le déploiement.
 
-This contains everything you need to run your app locally.
+## Comment lancer ?
 
-View your app in AI Studio: https://ai.studio/apps/drive/1F_ku49YQ6VQK8mm-XdsknMJqyjva7uzH
+1.  Ouvrez simplement le fichier `index.html` dans votre navigateur.
+2.  Ou utilisez un serveur local (ex: Live Server sur VS Code).
 
-## Run Locally
+## Déploiement GitHub Pages
 
-**Prerequisites:**  Node.js
+1.  Poussez ces fichiers sur votre dépôt GitHub.
+2.  Activez GitHub Pages dans les paramètres (Source: `main` ou `master`).
+3.  C'est tout ! Pas de commande `npm run build` nécessaire.
 
+## Fonctionnalités
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+*   Navigation fluide (SPA)
+*   Tableaux de bord Patient & Médecin
+*   Chatbot IA (simulation ou réel si Clé API ajoutée)
+*   Animations CSS
