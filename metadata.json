@@ -1,0 +1,8 @@
+{
+  "name": "Allo Docteur",
+  "description": "Allo Docteur - Plateforme de prise de rendez-vous médicaux avec assistance IA",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
